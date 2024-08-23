@@ -1,0 +1,54 @@
+[
+    {
+        "UserId": 1,
+        "FName": "Saad",
+        "LName": "Rizvi",
+        "IsAdmin": true,
+        "IsActive": true,
+        "Contacts": [
+        ]
+    },
+    {
+        "UserId": 2,
+        "FName": "Joe",
+        "LName": "Biden",
+        "IsAdmin": false,
+        "IsActive": true,
+        "Contacts": [
+            {
+                "ContactId": 1,
+                "FName": "Baracks",
+                "LName": "Obamas",
+                "IsActive": true,
+                "user": null,
+                "UserId": 2,
+                "ContactDetails": [
+                    {
+                        "ContactDetailId": 1,
+                        "Type": "fsdfs",
+                        "contact": null,
+                        "ContactId": 1
+                    },
+                    {
+                        "ContactDetailId": 1,
+                        "Type": "fsdfs",
+                        "contact": null,
+                        "ContactId": 1
+                    },
+                    {
+                        "ContactDetailId": 2,
+                        "Type": "sdfsdf",
+                        "contact": null,
+                        "ContactId": 1
+                    },
+                    {
+                        "ContactDetailId": 2,
+                        "Type": "sdfsdf",
+                        "contact": null,
+                        "ContactId": 1
+                    }
+                ]
+            }
+        ]
+    }
+]
