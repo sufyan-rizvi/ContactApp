@@ -122,13 +122,8 @@ namespace ContactApp.Repository
                     Users[i].Contacts = contacts;
                     return;
                 }
-                    
-
             }
 
         }
-
-
-
     }
 }

@@ -13,7 +13,7 @@ namespace ContactApp.Repository
     {
         public static User CurrentUser { get; set; }
         public static List<Contact> CurrentContacts { get; set; }
-        public static List<Contact> Contacts { get; set; }
+        
 
 
 
@@ -21,7 +21,7 @@ namespace ContactApp.Repository
         {
             CurrentUser = user;
             CurrentContacts = CurrentUser.Contacts;
-            //CurrentContacts = Contacts.Where(contact => contact.UserId == CurrentUser.UserId).ToList();
+            
             
         }
 
@@ -96,8 +96,6 @@ namespace ContactApp.Repository
                     CurrentContacts[i].ContactDetails = details;
                     return;
                 }
-
-
             }
 
         }

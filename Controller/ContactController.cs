@@ -37,7 +37,7 @@ namespace ContactApp.Controller
                             ViewAllContacts();
                             break;
                         case 5:
-                            UserSerializer.SerializeContactsAndDetails();
+                            UserSerializer.SerializeContacts();
                             continueMenu = false;
                             break;
                         default:
@@ -82,7 +82,7 @@ namespace ContactApp.Controller
 
         public static void UpdateContact()
         {
-            Console.Write("Enter the id you want to update !");
+            Console.Write("Enter the id you want to update: ");
             int id = Convert.ToInt32(Console.ReadLine());
             var contact = ContactRepository.GetById(id);
 

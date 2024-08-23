@@ -9,15 +9,14 @@ namespace ContactApp.Repository
         public static Contact CurrentContact { get; set; }
 
         public static List<ContactDetail> CurrentContactDetails { get; set; }
-        //public static List<ContactDetail> ContactDetails { get; set; }
+        
 
 
         public ContactDetailRepository(Contact contact)
         {
             CurrentContact = contact;
             CurrentContactDetails = CurrentContact.ContactDetails;
-            //CurrentContactDetails = ContactDetails.Where(d => d.ContactId == CurrentContact.ContactId).ToList();
-
+            
         }
 
 
@@ -36,7 +35,7 @@ namespace ContactApp.Repository
 
             detail.ContactId = CurrentContact.ContactId;
             CurrentContactDetails.Add(detail);
-            CurrentContactDetails.Add(detail);
+            
         }
 
         public static void DeleteDetail(int id)
@@ -63,8 +62,7 @@ namespace ContactApp.Repository
         public static void UpdateDetail(ContactDetail detail)
         {
             UpdatePositionInList(detail.ContactDetailId, CurrentContactDetails, detail);
-            //UpdatePositionInList(detail.ContactDetailId, ContactDetails, detail);
-            
+                       
         }
 
         public static void UpdatePositionInList(int id, List<ContactDetail> details, ContactDetail detail)

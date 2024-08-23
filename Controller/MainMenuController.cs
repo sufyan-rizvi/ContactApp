@@ -17,8 +17,7 @@ namespace ContactApp.Controller
         public static void Menu()
         {
             UserRepository.Users = UserSerializer.Deserialize();            
-            //ContactDetailRepository.ContactDetails = ContactDetailSerializer.Deserialize();
-
+            
             User currentUser;
 
             while (true)
@@ -38,7 +37,7 @@ namespace ContactApp.Controller
                 }
 
             }
-            if(currentUser.IsAdmin)
+            if (currentUser.IsAdmin) 
                 new UserRepository(currentUser);
             else
                 new ContactRepository(currentUser);
@@ -70,7 +69,8 @@ namespace ContactApp.Controller
 
         static void DisplayStaffMenu()
         {
-            Console.Write("1. Contact Menu\n" +
+            Console.Write("\n" +
+                "1. Contact Menu\n" +
                 "2. Contact Details Menu\n" +
                 "3. Logout\n" +
                 "Your Choice: ");

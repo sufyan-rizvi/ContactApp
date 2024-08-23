@@ -11,7 +11,7 @@ namespace ContactApp.Services
 {
     internal class UserSerializer
     {
-        const string pathUser = @"C:\Users\DELL\Desktop\Sufyan\AproSCM\ContactApp2\Assets\user.json";
+        const string pathUser = @"C:\Users\DELL\Desktop\Sufyan\AproSCM\ContactApp\Assets\user.json";
         
 
         public static void Serialize(List<User> users)
@@ -30,7 +30,7 @@ namespace ContactApp.Services
             return new List<User>();
         }
 
-        public static void SerializeContactsAndDetails()
+        public static void SerializeContactDetails()
         {
             if (ContactRepository.CurrentContacts == null)
                 ContactRepository.CurrentContacts = new List<Contact>();
@@ -40,6 +40,15 @@ namespace ContactApp.Services
             ContactRepository.UpdateDetailsOfContactList(ContactDetailRepository.CurrentContactDetails, ContactDetailRepository.CurrentContact.ContactId);
             UserRepository.UpdateContactsOfUser(ContactRepository.CurrentContacts, ContactRepository.CurrentUser.UserId);
 
+            Serialize(UserRepository.Users);
+        }
+
+        public static void SerializeContacts()
+        {
+            if (ContactRepository.CurrentContacts == null)
+                ContactRepository.CurrentContacts = new List<Contact>();
+            
+            UserRepository.UpdateContactsOfUser(ContactRepository.CurrentContacts, ContactRepository.CurrentUser.UserId);
             Serialize(UserRepository.Users);
         }
     }

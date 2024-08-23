@@ -21,6 +21,7 @@ namespace ContactApp.Controller
                 {
                     DisplayContactDetailMenu();
                     int choice = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine();
                     switch (choice)
                     {
                         case 1:
@@ -37,7 +38,7 @@ namespace ContactApp.Controller
                             ViewAllDetails();
                             break;
                         case 5:
-                            UserSerializer.SerializeContactsAndDetails();
+                            UserSerializer.SerializeContactDetails();
                             continueMenu = false;
                             break;
 
