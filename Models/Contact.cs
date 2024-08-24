@@ -22,7 +22,7 @@ namespace ContactApp.Models
             return $"\nContact Id: {ContactId}\n" +
                 $"Name: {FName +" "+ LName}\n" +
                 $"Active Status: {IsActive}\n" +
-                $"User Id: {UserId}";
+                $"User Id: {UserId}\n";
         }
     }
 }

@@ -17,7 +17,7 @@
         "Contacts": [
             {
                 "ContactId": 1,
-                "FName": "Barack",
+                "FName": "Michele",
                 "LName": "Obama",
                 "IsActive": true,
                 "user": null,
@@ -25,19 +25,13 @@
                 "ContactDetails": [
                     {
                         "ContactDetailId": 1,
-                        "Type": "Michele@gmail.com",
-                        "contact": null,
-                        "ContactId": 1
-                    },
-                    {
-                        "ContactDetailId": 2,
                         "Type": "USA@gmail.com",
                         "contact": null,
                         "ContactId": 1
                     },
                     {
-                        "ContactDetailId": 3,
-                        "Type": "\u002B16577753",
+                        "ContactDetailId": 2,
+                        "Type": "\u002B1-49330123",
                         "contact": null,
                         "ContactId": 1
                     }
@@ -47,12 +41,55 @@
                 "ContactId": 2,
                 "FName": "Mahatma",
                 "LName": "Gandhi",
-                "IsActive": true,
+                "IsActive": false,
+                "user": null,
+                "UserId": 2,
+                "ContactDetails": [
+                    {
+                        "ContactDetailId": 1,
+                        "Type": "london@gmail.com",
+                        "contact": null,
+                        "ContactId": 2
+                    }
+                ]
+            },
+            {
+                "ContactId": 3,
+                "FName": "Rohit",
+                "LName": "Sharma",
+                "IsActive": false,
                 "user": null,
                 "UserId": 2,
                 "ContactDetails": [
                 ]
             }
+        ]
+    },
+    {
+        "UserId": 3,
+        "FName": "Sufyan",
+        "LName": "Rizvi",
+        "IsAdmin": true,
+        "IsActive": false,
+        "Contacts": [
+        ]
+    },
+    {
+        "UserId": 4,
+        "FName": "Rick",
+        "LName": "Morty",
+        "IsAdmin": false,
+        "IsActive": false,
+        "Contacts": [
+        ]
+    },
+    {
+        "UserId": 5,
+        "FName": "Sufyan",
+        "LName": "Rizvi",
+        "IsAdmin": true,
+        "IsActive": true,
+        "Contacts": [
         ]
     }
 ]

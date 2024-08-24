@@ -18,7 +18,7 @@ namespace ContactApp.Models
             return $"\n" +
                 $"Contact Detail Id: {ContactDetailId}\n" +
                 $"Type: {Type}\n" +
-                $"Contact Id: {ContactId}";
+                $"Contact Id: {ContactId}\n";
         }
     }
 }

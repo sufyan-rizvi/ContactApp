@@ -78,13 +78,19 @@ namespace ContactApp.Controller
                 LName = lName,
                 IsActive = true
             });
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nContact Added Successfully!");
+            Console.ResetColor();
         }
 
         public static void UpdateContact()
         {
+            ViewAllContacts();
             Console.Write("Enter the id you want to update: ");
             int id = Convert.ToInt32(Console.ReadLine());
             var contact = ContactRepository.GetById(id);
+            ContactRepository.CheckActive(contact);
 
             Console.Write("Enter New First Name for contact: ");
             string fname = Console.ReadLine();
@@ -92,7 +98,7 @@ namespace ContactApp.Controller
             Console.Write("Enter New Last Name for contact: ");
             string lname = Console.ReadLine();
 
-            var position = UserRepository.GetPositionInList(id);
+            var position = ContactRepository.GetPositionInList(id);
 
             ContactRepository.UpdateContact(new Contact
             {
@@ -101,25 +107,45 @@ namespace ContactApp.Controller
                 UserId = contact.UserId,
                 IsActive = contact.IsActive,
                 ContactId = contact.ContactId,
+                ContactDetails = contact.ContactDetails
                 
             }, position);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nContact Updated Successfully!");
+            Console.ResetColor();
 
         }
 
         public static void RemoveContact()
         {
+            ViewAllContacts();
             Console.Write("Enter Contact Id to remove: ");
             int id = Convert.ToInt32(Console.ReadLine());
             ContactRepository.RemoveContact(id);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nContact Deleted Successfully!");
+            Console.ResetColor();
         }
 
         public static void ViewAllContacts()
         {
             ContactRepository.ViewAllContacts().ForEach(contact =>
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(contact);
-                Console.ResetColor();
+                if (contact.IsActive)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(contact);
+                    Console.ResetColor();
+                }
+
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(contact);
+                    Console.ResetColor();
+                }
             });
         }
     }

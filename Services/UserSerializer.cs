@@ -39,7 +39,6 @@ namespace ContactApp.Services
 
             ContactRepository.UpdateDetailsOfContactList(ContactDetailRepository.CurrentContactDetails, ContactDetailRepository.CurrentContact.ContactId);
             UserRepository.UpdateContactsOfUser(ContactRepository.CurrentContacts, ContactRepository.CurrentUser.UserId);
-
             Serialize(UserRepository.Users);
         }
 

@@ -122,20 +122,32 @@ namespace ContactApp.Controller
                 IsActive = isActive
 
             });
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nUser Added Successfully!");
+            Console.ResetColor();
         }
 
         public static void DeleteUser()
         {
-            Console.Write("Enter the UserId you want to delete: ");
+            ViewAllUsers();
+
+            Console.Write("Enter the User Id you want to delete: ");
             int id = Convert.ToInt32(Console.ReadLine());
             UserRepository.SetInactive(id);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nUser Deletd Successfully!");
+            Console.ResetColor();
         }
 
         public static void UpdateUser()
         {
-            Console.Write("Enter the id you want to update !");
+            ViewAllUsers();
+            Console.Write("Enter the User Id you want to update: ");
             int id = Convert.ToInt32(Console.ReadLine());
             var user = UserRepository.GetById(id);
+            UserRepository.CheckActive(user);
 
             Console.Write("Enter New First Name for user: ");
             string fname = Console.ReadLine();
@@ -152,12 +164,17 @@ namespace ContactApp.Controller
                 UserId = user.UserId,
                 IsActive = user.IsActive,
                 IsAdmin = user.IsAdmin,
+                Contacts = user.Contacts,
             }, position);
 
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nUser Updated Successfully!");
+            Console.ResetColor();
         }
 
         public static void MakeAdmin()
         {
+            ViewAllUsers();
             Console.Write("Enter the UserId you want to make Admin: ");
             int id = Convert.ToInt32(Console.ReadLine());
             UserRepository.SetAdmin(id);
@@ -166,10 +183,18 @@ namespace ContactApp.Controller
         public static void ViewAllUsers()
         {
             UserRepository.ViewAllUsers().ForEach(user => {
-
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(user);
-                Console.ResetColor();
+                if (user.IsActive)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(user);
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(user);
+                    Console.ResetColor();
+                }
             });
         }
     }

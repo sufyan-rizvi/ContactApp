@@ -71,6 +71,7 @@ namespace ContactApp.Controller
         public static void SelectContact()
         {
             ContactController.ViewAllContacts();
+
             Console.Write("\nEnter Contact Id that you wish to access: ");            
             int contactId = Convert.ToInt32(Console.ReadLine());
             Contact currentContact = ContactRepository.GetById(contactId);
@@ -87,13 +88,22 @@ namespace ContactApp.Controller
             {
                 Type = type
             });
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nDetail Added Successfully!");
+            Console.ResetColor();
         }
 
         public static void DeleteDetail()
         {
+            ViewAllDetails();
+
             Console.Write("Enter the Id you want to delete: ");
             int id = Convert.ToInt32(Console.ReadLine());
             ContactDetailRepository.DeleteDetail(id);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nDetail deleted Successfully!");
+            Console.ResetColor();
         }
 
         public static void ViewAllDetails()
@@ -107,6 +117,8 @@ namespace ContactApp.Controller
 
         public static void UpdateDetail()
         {
+            ViewAllDetails();
+
             Console.Write("Enter the id you want to update: ");
             int id = Convert.ToInt32(Console.ReadLine());
             var detail = ContactDetailRepository.GetById(id);
@@ -122,6 +134,9 @@ namespace ContactApp.Controller
 
             });
 
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nDetail Updated Successfully!");
+            Console.ResetColor();
         }
 
 
